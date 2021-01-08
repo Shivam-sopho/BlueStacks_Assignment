@@ -14,8 +14,10 @@ class User():
             self._users.append({'username': username, 'password': password})
             time.sleep(1)
             print("Congrats User Created Successfully")
+            return 0
         else:
             print("User already exists Please create another user")
+            return 1
 
     def check_user_pass(self, username, password):
         dict = {'username': username, 'password': password}
