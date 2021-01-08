@@ -21,7 +21,14 @@ if __name__ == '__main__':
                 new_user = input("Enter Username:")
                 new_passwd = getpass("Enter Password for " + new_user + ": ")
                 user.add_user_details(new_user, new_passwd)
-
+                roles_quantity = int(input(
+                    "Enter the number of roles to assign to user"))
+                roles = []
+                while(roles_quantity != 0):
+                    role_input = input("Enter roles:")
+                    roles.append(role_input)
+                    roles_quantity = roles_quantity - 1
+                user.assign_roles_users(new_user, roles)
         else:
             val = input(
                 "Press 1 to login as another user \nPress 2 for view roles \n Press 3 for access resource \n ")
@@ -29,3 +36,10 @@ if __name__ == '__main__':
                 username = input("Enter Username:")
                 password = getpass("Enter Password for" + username + ": ")
                 user.check_user_pass(username, password)
+            if(val == '2'):
+                user.get_roles_users(user_name)
+            if(val == '3'):
+                print("Enter resource and action details")
+                resource = input("Enter resource:")
+                action = input("Enter Action")
+                user.has_access(user_name, resource, action)
