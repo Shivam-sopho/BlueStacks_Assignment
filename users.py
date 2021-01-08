@@ -46,5 +46,5 @@ class User():
                     print("You can access this resource")
                     x = True
                     break
-        if(!x):
+        if not x:
             print("You cannot access this resource")
