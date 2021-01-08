@@ -39,10 +39,11 @@ class User():
         init_roles = Roles()
         get_roles = init_roles.get_roles()
         dict = {'resource': resourse, 'action': action}
+        print(dict)
         x = False
-        for roles in self._roles:
+        for roles in self._roles.get(username):
             if roles in get_roles:
-                if dict in roles:
+                if dict in get_roles.get(roles):
                     print("You can access this resource")
                     x = True
                     break
